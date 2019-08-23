@@ -1,0 +1,432 @@
+Common subdirectories: trunk/benchmark and clump_pft/benchmark
+Common subdirectories: trunk/bin and clump_pft/bin
+Common subdirectories: trunk/build and clump_pft/build
+Common subdirectories: trunk/etc and clump_pft/etc
+Common subdirectories: trunk/examples and clump_pft/examples
+Common subdirectories: trunk/extract and clump_pft/extract
+Common subdirectories: trunk/.fcm-make and clump_pft/.fcm-make
+diff -U 2 trunk/fcm-make-as-parsed.cfg clump_pft/fcm-make-as-parsed.cfg
+--- trunk/fcm-make-as-parsed.cfg	2017-11-16 09:31:50.000000000 -0800
++++ clump_pft/fcm-make-as-parsed.cfg	2017-11-16 10:12:02.000000000 -0800
+@@ -1,5 +1,5 @@
+ steps = extract preprocess build
+ extract.ns = jules
+-extract.location[jules] = /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk
++extract.location[jules] = /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft
+ extract.path-excl[jules] = / src/control/um src/initialisation/um      src/science/snow/snow_intctl.F90            src/science/surface/flake_interface.F90     src/params/um                               src/science/river_routing/um
+ preprocess.target{category} = include src
+diff -U 2 trunk/fcm-make.log clump_pft/fcm-make.log
+--- trunk/fcm-make.log	2017-11-16 09:31:49.000000000 -0800
++++ clump_pft/fcm-make.log	2017-11-16 10:12:02.000000000 -0800
+@@ -1,37 +1,39 @@
+-[info] shell(32512  0.0) git --git-dir=/home/mn811042/src/fcm/fcm-2015.08.0/bin/../.git describe
++[info] shell(32512  0.1) git --git-dir=/home/mn811042/src/fcm/fcm-2015.08.0/bin/../.git describe
+ [info] FCM 2015.08.0
+-[init] make config-parse   # 2016-11-24T15:42:32Z
+-[info] shell(0  0.1) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk
+-[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/make.cfg
+-[info] config-file=/glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/make.cfg
+-[info] shell(0  0.1) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/platform/custom.cfg
+-[info] config-file= - /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/platform/custom.cfg
+-[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/remote/local.cfg
+-[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/remote/local.cfg
+-[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/compiler/gfortran.cfg
+-[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/compiler/gfortran.cfg
+-[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/build/normal.cfg
+-[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/build/normal.cfg
+-[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/omp/noomp.cfg
+-[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/omp/noomp.cfg
+-[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/ncdf/netcdf.cfg
+-[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/ncdf/netcdf.cfg
+-[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/mpi/nompi.cfg
+-[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk/etc/fcm-make/mpi/nompi.cfg
+-[done] make config-parse   # 0.5s
+-[init] make dest-init      # 2016-11-24T15:42:32Z
+-[info] dest=mn811042@cloud06.local:/glusterfs/phd/users/mn811042/jules4.x/4.6/trunk
++[init] make config-parse   # 2016-12-28T17:48:26Z
++[info] shell(256  0.3) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft
++[info] config-file=/glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/make.cfg
++[info] shell(0  0.1) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/platform/custom.cfg
++[info] config-file= - /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/platform/custom.cfg
++[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/remote/local.cfg
++[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/remote/local.cfg
++[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/compiler/gfortran.cfg
++[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/compiler/gfortran.cfg
++[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/build/normal.cfg
++[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/build/normal.cfg
++[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/omp/noomp.cfg
++[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/omp/noomp.cfg
++[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/ncdf/netcdf.cfg
++[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/ncdf/netcdf.cfg
++[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/mpi/nompi.cfg
++[info] config-file= -  - /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/etc/fcm-make/mpi/nompi.cfg
++[done] make config-parse   # 0.8s
++[init] make dest-init      # 2016-12-28T17:48:27Z
++[info] dest=mn811042@cloud06.local:/glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft
+ [info] mode=incremental
+ [done] make dest-init      # 0.2s
+-[init] make extract        # 2016-11-24T15:42:33Z
+-[info] shell(0  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk
+-[info] tree-sources-info-get: n-tasks=1, elapsed-time=14.8s, total-time=14.8s
+-[info] location jules: 0: /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk
++[init] make extract        # 2016-12-28T17:48:27Z
++[info] shell(256  0.0) svn info /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft
++[info] tree-sources-info-get: n-tasks=1, elapsed-time=17.9s, total-time=17.9s
++[info] location jules: 0: /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft
+ [info] tree-cache-export: n-tasks=0, elapsed-time=0.0s, total-time=0.0s
+-[info]   dest:  533 [U unchanged]
+-[info] source:  533 [U from base]
+-[done] make extract        # 14.9s
+-[init] make preprocess     # 2016-11-24T15:42:48Z
+-[info] sources: total=533, analysed=0, elapsed-time=5.2s, total-time=0.0s
++[info] MU jules:0      src/science/surface/sf_stom_jls.F90
++[info]   dest:    1 [M modified]
++[info]   dest:  558 [U unchanged]
++[info] source:  559 [U from base]
++[done] make extract        # 18.0s
++[init] make preprocess     # 2016-12-28T17:48:46Z
++[info] analyse  0.0 jules/src/science/surface/sf_stom_jls.F90
++[info] sources: total=559, analysed=1, elapsed-time=2.3s, total-time=0.0s
+ [info] source->target jules/includes/shared/c_0_dg_c.h -> (install) include/ c_0_dg_c.h
+ [info] source->target jules/includes/shared/c_densty.h -> (install) include/ c_densty.h
+@@ -155,4 +157,5 @@
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_ancillaries.inc -> (install) include/ init_ancillaries.inc
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_ancillaries_mod.F90 -> (process) src/ jules/src/initialisation/standalone/ancillaries/init_ancillaries_mod.F90
++[info] source->target jules/src/initialisation/standalone/ancillaries/init_clump.inc -> (install) include/ init_clump.inc
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_crop_props.inc -> (install) include/ init_crop_props.inc
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_frac.inc -> (install) include/ init_frac.inc
+@@ -997,4 +1000,5 @@
+ [info] target  - init_agric.inc
+ [info] target  - init_ancillaries.inc
++[info] target  - init_clump.inc
+ [info] target  - init_crop_props.inc
+ [info] target  - init_frac.inc
+@@ -1129,4 +1133,5 @@
+ [info] target init_cropparm.inc
+ [info] target init_crop_props.inc
++[info] target init_clump.inc
+ [info] target init_ancillaries.inc
+ [info] target init_agric.inc
+@@ -1357,4 +1362,5 @@
+ [info] required-target: install   include init_agric.inc
+ [info] required-target: install   include init_ancillaries.inc
++[info] required-target: install   include init_clump.inc
+ [info] required-target: install   include init_crop_props.inc
+ [info] required-target: install   include init_cropparm.inc
+@@ -1885,4 +1891,5 @@
+ [info] install   ---- U init_agric.inc       <- jules/src/initialisation/standalone/ancillaries/init_agric.inc
+ [info] install   ---- U init_ancillaries.inc <- jules/src/initialisation/standalone/ancillaries/init_ancillaries.inc
++[info] install   ---- U init_clump.inc       <- jules/src/initialisation/standalone/ancillaries/init_clump.inc
+ [info] install   ---- U init_crop_props.inc  <- jules/src/initialisation/standalone/ancillaries/init_crop_props.inc
+ [info] install   ---- U init_cropparm.inc    <- jules/src/initialisation/standalone/params/init_cropparm.inc
+@@ -2211,5 +2218,6 @@
+ [info] process   ---- U jules/src/science/surface/sf_resist_jls.F90 <- jules/src/science/surface/sf_resist_jls.F90
+ [info] process   ---- U jules/src/science/surface/sf_rib.F90 <- jules/src/science/surface/sf_rib.F90
+-[info] process   ---- U jules/src/science/surface/sf_stom_jls.F90 <- jules/src/science/surface/sf_stom_jls.F90
++[info] shell(0  0.0) cpp -P -traditional -DSCMA -DBL_DIAG_HACK -DCOMPILER_GFORTRAN -DMPI_DUMMY -I./include /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/extract/jules/src/science/surface/sf_stom_jls.F90
++[info] process    0.0 M jules/src/science/surface/sf_stom_jls.F90 <- jules/src/science/surface/sf_stom_jls.F90
+ [info] process   ---- U jules/src/science/surface/sfl_int.F90 <- jules/src/science/surface/sfl_int.F90
+ [info] process   ---- U jules/src/science/surface/sice_htf_jls.F90 <- jules/src/science/surface/sice_htf_jls.F90
+@@ -2298,10 +2306,33 @@
+ [info] install   ---- U write_dump.inc       <- jules/src/io/dump/write_dump.inc
+ [info] process   ---- U jules/src/io/dump/dump_mod.F90 <- jules/src/io/dump/dump_mod.F90
+-[info] install   targets: modified=0, unchanged=168, failed=0, total-time=0.0s
+-[info] process   targets: modified=0, unchanged=359, failed=0, total-time=0.0s
+-[info] TOTAL     targets: modified=0, unchanged=527, failed=0, elapsed-time=3.2s
+-[done] make preprocess     # 9.0s
+-[init] make build          # 2016-11-24T15:42:57Z
+-[info] sources: total=533, analysed=0, elapsed-time=0.3s, total-time=0.0s
++[info] install   targets: modified=0, unchanged=169, failed=0, total-time=0.0s
++[info] process   targets: modified=1, unchanged=358, failed=0, total-time=0.0s
++[info] TOTAL     targets: modified=1, unchanged=527, failed=0, elapsed-time=3.4s
++[done] make preprocess     # 7.5s
++[init] make build          # 2016-12-28T17:48:53Z
++[info] analyse  0.1 jules/src/science/surface/sf_stom_jls.F90
++[info]              -> (        o) qsat
++[info]              -> ( f.module) jules_vegetation_mod
++[info]              -> ( f.module) theta_field_sizes
++[info]              -> ( f.module) leaf_mod
++[info]              -> ( f.module) cn_utils_mod
++[info]              -> ( f.module) switches
++[info]              -> ( f.module) atm_fields_bounds_mod
++[info]              -> ( f.module) yomhook
++[info]              -> ( f.module) parkind1
++[info]              -> ( f.module) ccarbon
++[info]              -> ( f.module) jules_surface_mod
++[info]              -> ( f.module) jules_surface_types_mod
++[info]              -> ( f.module) water_constants_mod
++[info]              -> ( f.module) cropparm
++[info]              -> ( f.module) c_0_dg_c
++[info]              -> ( f.module) leaf_limits_mod
++[info]              -> ( f.module) crop_vars_mod
++[info]              -> ( f.module) planet_constants_mod
++[info]              -> ( f.module) c_rmol
++[info]              -> ( f.module) pftparm
++[info]              -> ( f.module) crop_utils_mod
++[info]              -> ( f.module) bvoc_emissions_mod
++[info] sources: total=559, analysed=1, elapsed-time=0.4s, total-time=0.1s
+ [info] source->target / -> (install) etc/ .etc
+ [info] source->target / -> (archive) lib/ libo.a
+@@ -2331,4 +2362,5 @@
+ [info] source->target jules/src -> (install) etc/ jules/src/.etc
+ [info] source->target jules/src -> (archive) lib/ jules/src/libo.a
++[info] source->target jules/src/control -> (install) etc/ jules/src/control/.etc
+ [info] source->target jules/src/control -> (archive) lib/ jules/src/control/libo.a
+ [info] source->target jules/src/control/imogen -> (archive) lib/ jules/src/control/imogen/libo.a
+@@ -2409,4 +2441,5 @@
+ [info] source->target jules/src/control/imogen/var/imogen_progs.F90 -> (compile+) include/ imogen_progs.mod
+ [info] source->target jules/src/control/imogen/var/imogen_progs.F90 -> (compile) o/ imogen_progs.o
++[info] source->target jules/src/control/shared -> (install) etc/ jules/src/control/shared/.etc
+ [info] source->target jules/src/control/shared -> (archive) lib/ jules/src/control/shared/libo.a
+ [info] source->target jules/src/control/shared/CN_utils_mod.F90 -> (install) include/ CN_utils_mod.F90
+@@ -2473,4 +2506,5 @@
+ [info] source->target jules/src/control/shared/jules_vegetation_mod.F90 -> (compile+) include/ jules_vegetation_mod.mod
+ [info] source->target jules/src/control/shared/jules_vegetation_mod.F90 -> (compile) o/ jules_vegetation_mod.o
++[info] source->target jules/src/control/shared/jules_vegetation_mod.F90~ -> (install) etc/ jules/src/control/shared/jules_vegetation_mod.F90~
+ [info] source->target jules/src/control/shared/lake_mod.F90 -> (install) include/ lake_mod.F90
+ [info] source->target jules/src/control/shared/lake_mod.F90 -> (compile+) include/ lake_mod.mod
+@@ -2494,4 +2528,5 @@
+ [info] source->target jules/src/control/shared/surf_couple_explicit_mod.F90 -> (compile+) include/ surf_couple_explicit_mod.mod
+ [info] source->target jules/src/control/shared/surf_couple_explicit_mod.F90 -> (compile) o/ surf_couple_explicit_mod.o
++[info] source->target jules/src/control/shared/surf_couple_explicit_mod.F90~ -> (install) etc/ jules/src/control/shared/surf_couple_explicit_mod.F90~
+ [info] source->target jules/src/control/shared/surf_couple_extra_mod.F90 -> (install) include/ surf_couple_extra_mod.F90
+ [info] source->target jules/src/control/shared/surf_couple_extra_mod.F90 -> (compile+) include/ surf_couple_extra_mod.mod
+@@ -2503,4 +2538,5 @@
+ [info] source->target jules/src/control/shared/surf_couple_radiation_mod.F90 -> (compile+) include/ surf_couple_radiation_mod.mod
+ [info] source->target jules/src/control/shared/surf_couple_radiation_mod.F90 -> (compile) o/ surf_couple_radiation_mod.o
++[info] source->target jules/src/control/shared/surf_couple_radiation_mod.F90~ -> (install) etc/ jules/src/control/shared/surf_couple_radiation_mod.F90~
+ [info] source->target jules/src/control/shared/switches.F90 -> (install) include/ switches.F90
+ [info] source->target jules/src/control/shared/switches.F90 -> (compile+) include/ switches.mod
+@@ -2515,4 +2551,6 @@
+ [info] source->target jules/src/control/shared/trif_vars_mod.F90 -> (compile+) include/ trif_vars_mod.mod
+ [info] source->target jules/src/control/shared/trif_vars_mod.F90 -> (compile) o/ trif_vars_mod.o
++[info] source->target jules/src/control/shared/trif_vars_mod.F90~ -> (install) etc/ jules/src/control/shared/trif_vars_mod.F90~
++[info] source->target jules/src/control/standalone -> (install) etc/ jules/src/control/standalone/.etc
+ [info] source->target jules/src/control/standalone -> (archive) lib/ jules/src/control/standalone/libo.a
+ [info] source->target jules/src/control/standalone/control.F90 -> (install) include/ control.F90
+@@ -2556,4 +2594,5 @@
+ [info] source->target jules/src/control/standalone/update/update_mod.F90 -> (compile) o/ update_mod.o
+ [info] source->target jules/src/control/standalone/update/update_precip_variables.inc -> (install) include/ update_precip_variables.inc
++[info] source->target jules/src/control/standalone/var -> (install) etc/ jules/src/control/standalone/var/.etc
+ [info] source->target jules/src/control/standalone/var -> (archive) lib/ jules/src/control/standalone/var/libo.a
+ [info] source->target jules/src/control/standalone/var/aero.F90 -> (install) include/ aero.F90
+@@ -2605,4 +2644,5 @@
+ [info] source->target jules/src/control/standalone/var/trifctl.F90 -> (compile+) include/ trifctl.mod
+ [info] source->target jules/src/control/standalone/var/trifctl.F90 -> (compile) o/ trifctl.o
++[info] source->target jules/src/control/standalone/var/trifctl.F90~ -> (install) etc/ jules/src/control/standalone/var/trifctl.F90~
+ [info] source->target jules/src/control/standalone/var/u_v_grid.F90 -> (install) include/ u_v_grid.F90
+ [info] source->target jules/src/control/standalone/var/u_v_grid.F90 -> (compile+) include/ u_v_grid.mod
+@@ -2611,19 +2651,28 @@
+ [info] source->target jules/src/control/standalone/zenith_mod.F90 -> (compile+) include/ zenith_mod.mod
+ [info] source->target jules/src/control/standalone/zenith_mod.F90 -> (compile) o/ zenith_mod.o
++[info] source->target jules/src/initialisation -> (install) etc/ jules/src/initialisation/.etc
+ [info] source->target jules/src/initialisation -> (archive) lib/ jules/src/initialisation/libo.a
++[info] source->target jules/src/initialisation/shared -> (install) etc/ jules/src/initialisation/shared/.etc
+ [info] source->target jules/src/initialisation/shared -> (archive) lib/ jules/src/initialisation/shared/libo.a
+ [info] source->target jules/src/initialisation/shared/allocate_jules_arrays.F90 -> (install) include/ allocate_jules_arrays.F90
+ [info] source->target jules/src/initialisation/shared/allocate_jules_arrays.F90 -> (compile+) include/ allocate_jules_arrays_mod.mod
+ [info] source->target jules/src/initialisation/shared/allocate_jules_arrays.F90 -> (compile) o/ allocate_jules_arrays_mod.o
++[info] source->target jules/src/initialisation/shared/allocate_jules_arrays.F90~ -> (install) etc/ jules/src/initialisation/shared/allocate_jules_arrays.F90~
+ [info] source->target jules/src/initialisation/shared/freeze_soil.F90 -> (install) include/ freeze_soil.F90
+ [info] source->target jules/src/initialisation/shared/freeze_soil.F90 -> (compile+) include/ freeze_soil_mod.mod
+ [info] source->target jules/src/initialisation/shared/freeze_soil.F90 -> (compile) o/ freeze_soil_mod.o
++[info] source->target jules/src/initialisation/standalone -> (install) etc/ jules/src/initialisation/standalone/.etc
+ [info] source->target jules/src/initialisation/standalone -> (archive) lib/ jules/src/initialisation/standalone/libo.a
++[info] source->target jules/src/initialisation/standalone/ancillaries -> (install) etc/ jules/src/initialisation/standalone/ancillaries/.etc
+ [info] source->target jules/src/initialisation/standalone/ancillaries -> (archive) lib/ jules/src/initialisation/standalone/ancillaries/libo.a
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_agric.inc -> (install) include/ init_agric.inc
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_ancillaries.inc -> (install) include/ init_ancillaries.inc
++[info] source->target jules/src/initialisation/standalone/ancillaries/init_ancillaries.inc~ -> (install) etc/ jules/src/initialisation/standalone/ancillaries/init_ancillaries.inc~
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_ancillaries_mod.F90 -> (install) include/ init_ancillaries_mod.F90
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_ancillaries_mod.F90 -> (compile+) include/ init_ancillaries_mod.mod
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_ancillaries_mod.F90 -> (compile) o/ init_ancillaries_mod.o
++[info] source->target jules/src/initialisation/standalone/ancillaries/init_ancillaries_mod.F90~ -> (install) etc/ jules/src/initialisation/standalone/ancillaries/init_ancillaries_mod.F90~
++[info] source->target jules/src/initialisation/standalone/ancillaries/init_clump.inc -> (install) include/ init_clump.inc
++[info] source->target jules/src/initialisation/standalone/ancillaries/init_clump.inc~ -> (install) etc/ jules/src/initialisation/standalone/ancillaries/init_clump.inc~
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_crop_props.inc -> (install) include/ init_crop_props.inc
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_frac.inc -> (install) include/ init_frac.inc
+@@ -2632,4 +2681,5 @@
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_soil_props.inc -> (install) include/ init_soil_props.inc
+ [info] source->target jules/src/initialisation/standalone/ancillaries/init_top.inc -> (install) include/ init_top.inc
++[info] source->target jules/src/initialisation/standalone/grid -> (install) etc/ jules/src/initialisation/standalone/grid/.etc
+ [info] source->target jules/src/initialisation/standalone/grid -> (archive) lib/ jules/src/initialisation/standalone/grid/libo.a
+ [info] source->target jules/src/initialisation/standalone/grid/init_grid.inc -> (install) include/ init_grid.inc
+@@ -2638,4 +2688,5 @@
+ [info] source->target jules/src/initialisation/standalone/grid/init_grid_mod.F90 -> (compile) o/ init_grid_mod.o
+ [info] source->target jules/src/initialisation/standalone/grid/init_input_grid.inc -> (install) include/ init_input_grid.inc
++[info] source->target jules/src/initialisation/standalone/grid/init_input_grid.inc~ -> (install) etc/ jules/src/initialisation/standalone/grid/init_input_grid.inc~
+ [info] source->target jules/src/initialisation/standalone/grid/init_land_frac.inc -> (install) include/ init_land_frac.inc
+ [info] source->target jules/src/initialisation/standalone/grid/init_latlon.inc -> (install) include/ init_latlon.inc
+@@ -2667,4 +2718,5 @@
+ [info] source->target jules/src/initialisation/standalone/init_prescribed_data.F90 -> (ext-iface) include/ init_prescribed_data.interface
+ [info] source->target jules/src/initialisation/standalone/init_prescribed_data.F90 -> (compile) o/ init_prescribed_data.o
++[info] source->target jules/src/initialisation/standalone/init_prescribed_data.F90~ -> (install) etc/ jules/src/initialisation/standalone/init_prescribed_data.F90~
+ [info] source->target jules/src/initialisation/standalone/init_radiation.F90 -> (install) include/ init_radiation.F90
+ [info] source->target jules/src/initialisation/standalone/init_radiation.F90 -> (compile+) include/ init_radiation_mod.mod
+@@ -2697,8 +2749,11 @@
+ [info] source->target jules/src/initialisation/standalone/init_vegetation.F90 -> (compile+) include/ init_vegetation_mod.mod
+ [info] source->target jules/src/initialisation/standalone/init_vegetation.F90 -> (compile) o/ init_vegetation_mod.o
++[info] source->target jules/src/initialisation/standalone/initial_conditions -> (install) etc/ jules/src/initialisation/standalone/initial_conditions/.etc
+ [info] source->target jules/src/initialisation/standalone/initial_conditions -> (archive) lib/ jules/src/initialisation/standalone/initial_conditions/libo.a
+ [info] source->target jules/src/initialisation/standalone/initial_conditions/calc_fit_fsat.inc -> (install) include/ calc_fit_fsat.inc
+ [info] source->target jules/src/initialisation/standalone/initial_conditions/get_default_ic_values.inc -> (install) include/ get_default_ic_values.inc
++[info] source->target jules/src/initialisation/standalone/initial_conditions/get_default_ic_values.inc~ -> (install) etc/ jules/src/initialisation/standalone/initial_conditions/get_default_ic_values.inc~
+ [info] source->target jules/src/initialisation/standalone/initial_conditions/init_ic.inc -> (install) include/ init_ic.inc
++[info] source->target jules/src/initialisation/standalone/initial_conditions/init_ic.inc~ -> (install) etc/ jules/src/initialisation/standalone/initial_conditions/init_ic.inc~
+ [info] source->target jules/src/initialisation/standalone/initial_conditions/initial_conditions_mod.F90 -> (install) include/ initial_conditions_mod.F90
+ [info] source->target jules/src/initialisation/standalone/initial_conditions/initial_conditions_mod.F90 -> (compile+) include/ initial_conditions_mod.mod
+@@ -2715,12 +2770,18 @@
+ [info] source->target jules/src/initialisation/standalone/params/init_pftparm.inc -> (install) include/ init_pftparm.inc
+ [info] source->target jules/src/initialisation/standalone/params/init_triffid.inc -> (install) include/ init_triffid.inc
++[info] source->target jules/src/io -> (install) etc/ jules/src/io/.etc
+ [info] source->target jules/src/io -> (archive) lib/ jules/src/io/libo.a
++[info] source->target jules/src/io/dump -> (install) etc/ jules/src/io/dump/.etc
+ [info] source->target jules/src/io/dump -> (archive) lib/ jules/src/io/dump/libo.a
+ [info] source->target jules/src/io/dump/dump_mod.F90 -> (install) include/ dump_mod.F90
+ [info] source->target jules/src/io/dump/dump_mod.F90 -> (compile+) include/ dump_mod.mod
+ [info] source->target jules/src/io/dump/dump_mod.F90 -> (compile) o/ dump_mod.o
++[info] source->target jules/src/io/dump/dump_mod.F90~ -> (install) etc/ jules/src/io/dump/dump_mod.F90~
+ [info] source->target jules/src/io/dump/read_dump.inc -> (install) include/ read_dump.inc
++[info] source->target jules/src/io/dump/read_dump.inc~ -> (install) etc/ jules/src/io/dump/read_dump.inc~
+ [info] source->target jules/src/io/dump/required_vars_for_configuration.inc -> (install) include/ required_vars_for_configuration.inc
++[info] source->target jules/src/io/dump/required_vars_for_configuration.inc~ -> (install) etc/ jules/src/io/dump/required_vars_for_configuration.inc~
+ [info] source->target jules/src/io/dump/write_dump.inc -> (install) include/ write_dump.inc
++[info] source->target jules/src/io/dump/write_dump.inc~ -> (install) etc/ jules/src/io/dump/write_dump.inc~
+ [info] source->target jules/src/io/file_handling -> (archive) lib/ jules/src/io/file_handling/libo.a
+ [info] source->target jules/src/io/file_handling/core -> (archive) lib/ jules/src/io/file_handling/core/libo.a
+@@ -2839,10 +2900,13 @@
+ [info] source->target jules/src/io/input/time_varying/time_varying_input_mod.F90 -> (compile) o/ time_varying_input_mod.o
+ [info] source->target jules/src/io/input/time_varying/update_model_variables.inc -> (install) include/ update_model_variables.inc
++[info] source->target jules/src/io/model_interface -> (install) etc/ jules/src/io/model_interface/.etc
+ [info] source->target jules/src/io/model_interface -> (archive) lib/ jules/src/io/model_interface/libo.a
+ [info] source->target jules/src/io/model_interface/extract_var.inc -> (install) include/ extract_var.inc
++[info] source->target jules/src/io/model_interface/extract_var.inc~ -> (install) etc/ jules/src/io/model_interface/extract_var.inc~
+ [info] source->target jules/src/io/model_interface/get_string_identifier.inc -> (install) include/ get_string_identifier.inc
+ [info] source->target jules/src/io/model_interface/get_var_attrs.inc -> (install) include/ get_var_attrs.inc
+ [info] source->target jules/src/io/model_interface/get_var_id.inc -> (install) include/ get_var_id.inc
+ [info] source->target jules/src/io/model_interface/get_var_levs_dims.inc -> (install) include/ get_var_levs_dims.inc
++[info] source->target jules/src/io/model_interface/get_var_levs_dims.inc~ -> (install) etc/ jules/src/io/model_interface/get_var_levs_dims.inc~
+ [info] source->target jules/src/io/model_interface/map_from_land.inc -> (install) include/ map_from_land.inc
+ [info] source->target jules/src/io/model_interface/map_to_land.inc -> (install) include/ map_to_land.inc
+@@ -2850,7 +2914,10 @@
+ [info] source->target jules/src/io/model_interface/model_interface_mod.F90 -> (compile+) include/ model_interface_mod.mod
+ [info] source->target jules/src/io/model_interface/model_interface_mod.F90 -> (compile) o/ model_interface_mod.o
++[info] source->target jules/src/io/model_interface/model_interface_mod.F90~ -> (install) etc/ jules/src/io/model_interface/model_interface_mod.F90~
+ [info] source->target jules/src/io/model_interface/populate_var.inc -> (install) include/ populate_var.inc
++[info] source->target jules/src/io/model_interface/populate_var.inc~ -> (install) etc/ jules/src/io/model_interface/populate_var.inc~
+ [info] source->target jules/src/io/model_interface/tiles_to_gbm.inc -> (install) include/ tiles_to_gbm.inc
+ [info] source->target jules/src/io/model_interface/variable_metadata.inc -> (install) include/ variable_metadata.inc
++[info] source->target jules/src/io/model_interface/variable_metadata.inc~ -> (install) etc/ jules/src/io/model_interface/variable_metadata.inc~
+ [info] source->target jules/src/io/output -> (archive) lib/ jules/src/io/output/libo.a
+ [info] source->target jules/src/io/output/close_all.inc -> (install) include/ close_all.inc
+@@ -3096,4 +3163,5 @@
+ [info] source->target jules/src/science/radiation/tile_albedo_jls.F90 -> (install) include/ tile_albedo_jls.F90
+ [info] source->target jules/src/science/radiation/tile_albedo_jls.F90 -> (ext-iface) include/ tile_albedo_jls.interface
++[info] source->target jules/src/science/radiation/tile_albedo_jls.F90~ -> (install) etc/ jules/src/science/radiation/tile_albedo_jls.F90~
+ [info] source->target jules/src/science/radiation/urbanemis.F90 -> (install) include/ urbanemis.F90
+ [info] source->target jules/src/science/radiation/urbanemis.F90 -> (ext-iface) include/ urbanemis.interface
+@@ -3370,4 +3438,5 @@
+ [info] source->target jules/src/science/surface/physiol_jls.F90 -> (install) include/ physiol_jls.F90
+ [info] source->target jules/src/science/surface/physiol_jls.F90 -> (ext-iface) include/ physiol_jls.interface
++[info] source->target jules/src/science/surface/physiol_jls.F90~ -> (install) etc/ jules/src/science/surface/physiol_jls.F90~
+ [info] source->target jules/src/science/surface/qsat_jls.F90 -> (compile) o/ qsat.o
+ [info] source->target jules/src/science/surface/qsat_jls.F90 -> (install) include/ qsat_jls.F90
+@@ -3406,4 +3475,5 @@
+ [info] source->target jules/src/science/surface/sf_expl_jls.F90 -> (ext-iface) include/ sf_expl_jls.interface
+ [info] source->target jules/src/science/surface/sf_expl_jls.F90 -> (compile) o/ sf_expl_l.o
++[info] source->target jules/src/science/surface/sf_expl_jls.F90~ -> (install) etc/ jules/src/science/surface/sf_expl_jls.F90~
+ [info] source->target jules/src/science/surface/sf_flux.F90 -> (install) include/ sf_flux.F90
+ [info] source->target jules/src/science/surface/sf_flux.F90 -> (compile+) include/ sf_flux_mod.mod
+@@ -4352,4 +4422,5 @@
+ [info] target  -  -  -  - prognostics.mod (n-deps=1)
+ [info] target  -  -  -  - theta_field_sizes.mod (n-deps=1)
++[info] target  -  -  -  - trifctl.mod (n-deps=1)
+ [info] target  -  -  -  - yomhook.mod (n-deps=1)
+ [info] target  -  - theta_field_sizes.mod (n-deps=1)
+@@ -5765,5 +5836,5 @@
+ [info] target  - surf_couple_extra_mod.o (n-deps=35)
+ [info] target  - surf_couple_implicit_mod.o (n-deps=14)
+-[info] target  - surf_couple_radiation_mod.o (n-deps=13)
++[info] target  - surf_couple_radiation_mod.o (n-deps=14)
+ [info] target  - surf_hyd.o
+ [info] target  -  - jules_surface_mod.mod (n-deps=1)
+@@ -5888,5 +5959,5 @@
+ [info] required-target: link      bin     jules.exe
+ [info] required-target: install   bin     rose-jules-run
+-[info] target-tree-analysis: elapsed-time=0.8s
++[info] target-tree-analysis: elapsed-time=0.6s
+ [info] compile   ---- U water_constants_mod.o <- jules/src/params/standalone/water_constants_mod_jls.F90
+ [info] compile   ---- U veg_param.o          <- jules/src/science/params/veg_param.F90
+@@ -5905,6 +5976,6 @@
+ [info] compile+  ---- U theta_field_sizes.mod <- jules/src/science/params/theta_field_sizes.F90
+ [info] compile   ---- U switches.o           <- jules/src/control/shared/switches.F90
+-[info] compile+  ---- U switches.mod         <- jules/src/control/shared/switches.F90
+ [info] compile+  ---- U trifctl.mod          <- jules/src/control/standalone/var/trifctl.F90
++[info] compile+  ---- U switches.mod         <- jules/src/control/shared/switches.F90
+ [info] compile+  ---- U top_pdm.mod          <- jules/src/control/standalone/var/top_pdm.F90
+ [info] compile   ---- U solinc_data.o        <- jules/src/control/standalone/var/solinc_data.F90
+@@ -6326,6 +6397,7 @@
+ [info] compile   ---- U sfl_int_mod.o        <- jules/src/science/surface/sfl_int.F90
+ [info] compile+  ---- U sfl_int_mod.mod      <- jules/src/science/surface/sfl_int.F90
+-[info] compile   ---- U sf_stom_mod.o        <- jules/src/science/surface/sf_stom_jls.F90
+-[info] compile+  ---- U sf_stom_mod.mod      <- jules/src/science/surface/sf_stom_jls.F90
++[info] shell(0  1.4) gfortran -oo/sf_stom_mod.o -c -DSCMA -DBL_DIAG_HACK -DCOMPILER_GFORTRAN -DMPI_DUMMY -I./include -I/home/db903833/src/netcdf/install-4.1.3//include -fbounds-check /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/preprocess/src/jules/src/science/surface/sf_stom_jls.F90
++[info] compile    1.4 M sf_stom_mod.o        <- jules/src/science/surface/sf_stom_jls.F90
++[info] compile+   0.0 M sf_stom_mod.mod      <- jules/src/science/surface/sf_stom_jls.F90
+ [info] compile   ---- U sf_rib.o             <- jules/src/science/surface/sf_rib.F90
+ [info] compile   ---- U sf_resist.o          <- jules/src/science/surface/sf_resist_jls.F90
+@@ -6375,5 +6447,6 @@
+ [info] compile+  ---- U sf_exch_mod.mod      <- jules/src/science/surface/sf_exch_jls.F90
+ [info] compile   ---- U sf_expl_l.o          <- jules/src/science/surface/sf_expl_jls.F90
+-[info] compile   ---- U physiol.o            <- jules/src/science/surface/physiol_jls.F90
++[info] shell(0  1.7) gfortran -oo/physiol.o -c -DSCMA -DBL_DIAG_HACK -DCOMPILER_GFORTRAN -DMPI_DUMMY -I./include -I/home/db903833/src/netcdf/install-4.1.3//include -fbounds-check /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft/preprocess/src/jules/src/science/surface/physiol_jls.F90
++[info] compile    1.7 U physiol.o            <- jules/src/science/surface/physiol_jls.F90
+ [info] compile   ---- U parallel_mod.o       <- jules/src/control/standalone/parallel/parallel_mod.F90
+ [info] compile+  ---- U parallel_mod.mod     <- jules/src/control/standalone/parallel/parallel_mod.F90
+@@ -6441,11 +6514,14 @@
+ [info] compile+  ---- U init_grid_mod.mod    <- jules/src/initialisation/standalone/grid/init_grid_mod.F90
+ [info] compile   ---- U init.o               <- jules/src/initialisation/standalone/init.F90
+-[info] link      ---- U jules.exe            <- jules/src/control/standalone/jules.F90
++[info] shell(0  1.1) ar rs /tmp/Eh7Z7yR6Fq/libjules.a o/albpft.o o/albsnow.o o/albsnow_ts.o o/arealat1.o o/areaver_mod.o o/bedrock.o o/blend_h.o o/bvoc_emissions_mod.o o/c0fmt.o o/c_0_dg_c.o o/c_bvoc.o o/c_ch4.o o/c_densty.o o/c_epslon.o o/c_g.o o/c_gamma.o o/c_grid2grid_mod.o o/c_kappai.o o/c_lheat.o o/c_mm_m.o o/c_pi.o o/c_r_cp.o o/c_rhowat.o o/c_rmol.o o/c_rough.o o/c_sicehc.o o/c_surf.o o/c_topog.o o/c_vkman.o o/c_z0h_z0m.o o/calc_baseflow_jls_mod.o o/calc_baseflow_jules.o o/calc_crop_date.o o/calc_fsat.o o/calc_mon_no.o o/calc_zw.o o/calc_zw_inund.o o/canadian.o o/cancap.o o/canopysnow_mod.o o/canyonalb.o o/ccarbon.o o/ch4_wetl.o o/clim_calc.o o/compactsnow_mod.o o/compete.o o/control.o o/cosd.o o/cp2_mod.o o/crop.o o/cropparm.o o/cropparm_io.o o/csigma.o o/darcy_ch.o o/darcy_ic.o o/darcy_vg.o o/day_calc.o o/decay.o o/delta_temp.o o/descent.o o/develop.o o/dewpnt.o o/diffcarb_land.o o/dpm_rpm.o o/drdat.o o/dust_param.o o/dustresb.o o/elev_htc_mod.o o/elevate.o o/emerge.o o/fao_evapotranspiration.o o/fcdch.o o/fire_allocate.o o/fire_calc_daily.o o/fire_init.o o/fire_mod.o o/fire_timestep_mod.o o/frunoff.o o/ftsa.o o/gauss.o o/gcm_anlg.o o/generate_anthropogenic_heat.o o/get_us.o o/getlat0.o o/getlon0.o o/givelat.o o/givelen.o o/givelon.o o/giverade.o o/heat_con.o o/hyd_con_ch.o o/hyd_con_ic.o o/hyd_con_vg.o o/hydrol_mod.o o/ice_formdrag_lupkes_mod.o o/ice_htc.o o/im_sf_pt2.o o/imogen_check.o o/imogen_clim.o o/imogen_confirmed_run.o o/imogen_drive_vars.o o/imogen_io_vars.o o/imogen_map.o o/imogen_progs.o o/imogen_update_carb.o o/imogen_update_clim.o o/inferno_io_mod.o o/inferno_mod.o o/init.o o/init_ancillaries_mod.o o/init_drive.o o/init_fire.o o/init_grid_mod.o o/init_hydrology_mod.o o/init_imogen.o o/init_output.o o/init_params_mod.o o/init_parms.o o/init_prescribed_data.o o/init_radiation_mod.o o/init_rivers_mod.o o/init_snow_mod.o o/init_soil_mod.o o/init_surface_mod.o o/init_surface_types_mod.o o/init_time.o o/init_urban.o o/init_vars_tmp.o o/init_vegetation_mod.o o/initial0_mod.o o/initial_conditions_mod.o o/invert.o o/irrig_dmd.o o/jin11_osa_mod.o o/jules_rivers_rfm_mod.o o/jules_rivers_trip_mod.o o/jules_riversparm.o o/layersnow_mod.o o/leaf_limits_mod.o o/leaf_lit.o o/leaf_mod.o o/lotka.o o/lotka_eq.o o/lotka_noeq.o o/lotka_noeq_subset.o o/matinv.o o/mcarthur.o o/microbe.o o/mmd2kgs_mod.o o/mpi.o o/mpi_init.o o/nesterov.o o/next_time.o o/nvegparm.o o/nvegparm_io.o o/ocean_co2.o o/opt_crop_date.o o/outflow1_mod.o o/parkind1.o o/partition.o o/pdm.o o/pft_sparm.o o/pftparm.o o/pftparm_io.o o/phenol.o o/phi_m_h.o o/phi_m_h_vol.o o/physiol.o o/plant_growth_n.o o/pre_areaver_mod.o o/qsat.o o/qsat_mix.o o/qsat_wat.o o/radf_co2.o o/radf_non_co2.o o/raero.o o/redis.o o/relayersnow_mod.o o/response.o o/riv_directions.o o/riv_intctl_mod_1a.o o/riv_intctl_mod_2a.o o/riv_rout_mod_1a.o o/riv_rout_mod_2a.o o/rivers_utils.o o/rndm.o o/root_frac.o o/routedbl_mod.o o/screen_tq.o o/sea_rough_int.o o/setarea_mod.o o/setcoef_mod.o o/setinit_mod.o o/setlen_mod.o o/setnext_mod.o o/setrval_mod.o o/sf_aero.o o/sf_diags_mod.o o/sf_evap.o o/sf_exch_mod.o o/sf_expl_l.o o/sf_flux_mod.o o/sf_impl2.o o/sf_melt.o o/sf_orog.o o/sf_orog_gb.o o/sf_resist.o o/sf_rib.o o/sf_stom_mod.o o/sfl_int_mod.o o/sice_htf.o o/sieve.o o/sind.o o/smc_ext_mod.o o/snow_mod.o o/snowgrain_mod.o o/snowpack_mod.o o/snowtherm_mod.o o/soil_evap.o o/soil_htc.o o/soil_hyd.o o/soil_hyd_update.o o/soil_hyd_wt.o o/soilcarb.o o/soilmc.o o/soilt.o o/solang.o o/solpos.o o/sow.o o/sparm.o o/stdev1.o o/sunny.o o/surf_hyd.o o/theta_field_sizes.o o/tile_albedo.o o/tilepts.o o/tridag_mod.o o/trif.o o/trif_io.o o/triffid.o o/urban_param.o o/urbanemis.o o/urbanz0.o o/veg1.o o/veg2.o o/veg_param.o o/vegcarb.o o/vgrav.o o/woodprod.o o/wrtwblog_mod.o o/yomhook.o o/jules_print_mgr.o o/logging_mod.o o/string_utils_mod.o o/io_constants.o o/jules_surface_types_mod.o o/missing_data_mod.o o/max_dimensions.o o/ereport_mod.o o/dust_parameters_mod.o o/chemistry_constants_mod.o o/planet_constants_mod.o o/water_constants_mod.o o/conversions_mod.o o/atm_fields_bounds_mod.o o/trif_vars_mod.o o/jules_vegetation_mod.o o/jules_surface_mod.o o/jules_hydrology_mod.o o/cn_utils_mod.o o/crop_vars_mod.o o/crop_utils_mod.o o/prognostics.o o/jules_soil_mod.o o/ancil_info.o o/switches_urban.o o/jules_snow_mod.o o/um_types.o o/precision_mod.o o/lake_mod.o o/jules_radiation_mod.o o/jules_mod.o o/datetime_mod.o o/datetime_utils_mod.o o/time_info_mod.o o/model_time_mod.o o/jules_internal.o o/timestep_mod.o o/jules_sea_seaice_mod.o o/switches.o o/bl_option_mod.o o/solinc_data.o o/science_fixes_mod.o o/dynamics_input_mod.o o/fluxes.o o/c_elevate.o o/bvoc_vars.o o/ozone_vars.o o/model_grid_mod.o o/grid_utils_mod.o o/jules_rivers_mod.o o/errormessagelength_mod.o o/trifctl.o o/time_varying_input_mod.o o/model_interface_mod.o o/top_pdm.o o/p_s_parms.o o/metstats_mod.o o/forcing.o o/fire_vars.o o/dictionary_mod.o o/data_cube_mod.o o/coastal.o o/aero.o o/interpolation_mod.o o/input_mod.o o/file_gridded_mod.o o/file_mod.o o/driver_ncdf_mod.o o/driver_ascii_mod.o o/file_ascii_generic_sync_mod.o o/file_ts_mod.o o/templating_mod.o o/spinup_mod.o o/dump_mod.o o/update_mod.o o/u_v_grid.o o/disaggregated_precip.o o/parallel_mod.o o/output_mod.o o/imogen_constants.o o/jules_final_mod.o o/zenith_mod.o o/surf_couple_radiation_mod.o o/orog.o o/surf_couple_implicit_mod.o o/surf_couple_extra_mod.o o/river_control_mod.o o/metstats_timestep_mod.o o/diag_swchs.o o/surf_couple_explicit_mod.o o/freeze_soil_mod.o o/imogen_time.o o/imogen_run.o o/imogen_anlg_vals.o o/allocate_jules_arrays_mod.o o/metstats_init_mod.o
++[>>&2] ar: creating /tmp/Eh7Z7yR6Fq/libjules.a
++[info] shell(0  0.7) gfortran -obin/jules.exe o/jules.o -L/tmp/Eh7Z7yR6Fq -ljules -L/home/db903833/src/netcdf/install-4.1.3//lib -lnetcdff -fbounds-check -Wl,--rpath=/home/db903833/src/netcdf/install-4.1.3//lib
++[info] link       2.2 M jules.exe            <- jules/src/control/standalone/jules.F90
+ [info] install   ---- U rose-jules-run       <- jules/bin/rose-jules-run
+-[info] compile   targets: modified=0, unchanged=348, failed=0, total-time=0.0s
+-[info] compile+  targets: modified=0, unchanged=204, failed=0, total-time=0.0s
++[info] compile   targets: modified=1, unchanged=347, failed=0, total-time=3.1s
++[info] compile+  targets: modified=1, unchanged=203, failed=0, total-time=0.0s
+ [info] install   targets: modified=0, unchanged=1, failed=0, total-time=0.0s
+-[info] link      targets: modified=0, unchanged=1, failed=0, total-time=0.0s
+-[info] TOTAL     targets: modified=0, unchanged=554, failed=0, elapsed-time=6.1s
+-[done] make build          # 6.7s
+-[done] make                # 31.3s
++[info] link      targets: modified=1, unchanged=0, failed=0, total-time=2.2s
++[info] TOTAL     targets: modified=3, unchanged=551, failed=0, elapsed-time=11.5s
++[done] make build          # 12.3s
++[done] make                # 38.9s
+diff -U 2 trunk/fcm-make-on-success.cfg clump_pft/fcm-make-on-success.cfg
+--- trunk/fcm-make-on-success.cfg	2017-11-16 09:31:50.000000000 -0800
++++ clump_pft/fcm-make-on-success.cfg	2017-11-16 10:12:02.000000000 -0800
+@@ -1,5 +1,5 @@
+ name = 
+ steps = extract preprocess build
+-dest = /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk
++dest = /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft
+ build.prop{ar, class} = ar
+ build.prop{ar.flags, class} = rs
+@@ -104,5 +104,5 @@
+ extract.path-excl[jules] = / src/control/um src/initialisation/um src/science/snow/snow_intctl.F90 src/science/surface/flake_interface.F90 src/params/um src/science/river_routing/um
+ extract.path-incl[jules] = bin includes src utils/drhook_dummy utils/mpi_dummy
+-extract.location{type:svn}[jules] = /glusterfs/phd/users/mn811042/jules4.x/4.6/trunk
++extract.location{type:fs}[jules] = /glusterfs/phd/users/mn811042/jules4.x/4.6/clump_pft
+ preprocess.target{category} = include src
+ preprocess.target{task} = install process
+Common subdirectories: trunk/includes and clump_pft/includes
+Common subdirectories: trunk/preprocess and clump_pft/preprocess
+Common subdirectories: trunk/rose-meta and clump_pft/rose-meta
+Common subdirectories: trunk/rose-stem and clump_pft/rose-stem
+Common subdirectories: trunk/src and clump_pft/src
+Only in trunk/: .svn
+Common subdirectories: trunk/trunk and clump_pft/trunk
+Common subdirectories: trunk/utils and clump_pft/utils
