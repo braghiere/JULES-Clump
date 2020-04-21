@@ -1,6 +1,6 @@
 # JULES-Clump 
 
-This contains data files used in [Braghiere et al. (2019)](link).
+This contains data files used in [Braghiere et al. (2019)](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018GB006135).
 
 ##  Table of contents
 
