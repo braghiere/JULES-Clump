@@ -16,4 +16,6 @@ Renato Braghiere renato.braghiere@gmail.com
 
 ## References 
 
+Braghiere, R. K., Quaife, T., Black, E., He, L. and Chen, J. M.: Underestimation of Global Photosynthesis in Earth System Models Due to Representation of Vegetation Structure, Global Biogeochem. Cycles, 2018GB006135, doi:10.1029/2018GB006135, 2019.
+
 He, L., et al. (2012). Global clumping index map derived from the MODIS BRDF product. Remote Sensing of Environment, 119, 118-130.
